@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.authtoken import views
+from rest_framework.schemas import get_schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('app.theory.urls')),
+    path('authtoken/', views.obtain_auth_token),
+    path('openapi/', get_schema_view(
+        title="RuliPro",
+        description="API for RuliPro",
+        version="1.0.0",
+        url="http://127.0.0.1:8000/"
+    ), name='openapi-schema'),
 ]

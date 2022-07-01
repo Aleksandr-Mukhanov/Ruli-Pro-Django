@@ -21,3 +21,24 @@ class CreatedUpdatedMixin(models.Model):
 
     class Meta:
         abstract = True
+
+
+class SortMixin(models.Model):
+    sort = models.SmallIntegerField(verbose_name='Сортировка', default=500)
+
+    class Meta:
+        abstract = True
+
+
+class IsArchiveMixin(models.Model):
+    is_archive = models.BooleanField(verbose_name='Архив', default=False)
+
+    class Meta:
+        abstract = True
+
+
+class NoteMixin(models.Model):
+    note = models.CharField(max_length=200, verbose_name='Заметка')
+
+    class Meta:
+        abstract = True
