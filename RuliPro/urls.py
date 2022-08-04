@@ -22,6 +22,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('app.theory.urls')),
+    # path('api/users/', include('app.user.urls')),
     path('authtoken/', views.obtain_auth_token),
     path('openapi/', get_schema_view(
         title="RuliPro",

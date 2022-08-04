@@ -29,7 +29,12 @@ class Question(NameMixin, CreatedUpdatedMixin, NoteMixin, IsArchiveMixin):
 
 class Answer(NameMixin, CreatedUpdatedMixin, IsArchiveMixin):
     is_answer = models.BooleanField(verbose_name='Верный', default=False)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, verbose_name='Вопрос')
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        verbose_name='Вопрос',
+        related_name="answers"
+    )
 
     class Meta:
         verbose_name = 'Ответ'
