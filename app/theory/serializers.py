@@ -2,6 +2,12 @@ from rest_framework import serializers
 from .models import *
 
 
+class MediaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MediaFile
+        fields = ('id', 'url')
+
+
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
@@ -10,17 +16,19 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     answers = AnswerSerializer(many=True, read_only=False)
+    media = MediaSerializer(many=True, read_only=False)
 
     class Meta:
         model = Question
-        fields = ('id', 'name', 'ticket', 'number_in_ticket', 'note', 'answers', 'subject')
+        fields = ('id', 'name', 'ticket', 'number_in_ticket', 'note', 'answers', 'subject', 'media')
         depth = 2
 
 
 class SubjectSerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True, read_only=False)
+    media = MediaSerializer(many=True, read_only=False)
 
     class Meta:
         model = Subject
-        fields = ('id', 'name', 'sort', 'category', 'questions')
+        fields = ('id', 'name', 'sort', 'category', 'questions', 'media')
         depth = 1

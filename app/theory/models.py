@@ -2,10 +2,11 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 from app.mixins.db_classes import NameMixin, CreatedUpdatedMixin, SortMixin, NoteMixin, IsArchiveMixin
 from app.dictionary.models import Category
+from app.media.models import MediaFile
 
 
 class Subject(NameMixin, CreatedUpdatedMixin, SortMixin, IsArchiveMixin):
-    # media = models.ImageField('Видео', upload_to='templates/img/', default='', blank=True)
+    media = GenericRelation(MediaFile)
     category = models.ManyToManyField(Category, verbose_name='Категория')
 
     class Meta:
@@ -17,7 +18,7 @@ class Subject(NameMixin, CreatedUpdatedMixin, SortMixin, IsArchiveMixin):
 
 
 class Question(NameMixin, CreatedUpdatedMixin, NoteMixin, IsArchiveMixin):
-    # media = models.ImageField('Изображение', upload_to='templates/img/', default='', blank=True)
+    media = GenericRelation(MediaFile)
     ticket = models.SmallIntegerField(verbose_name='Номер')
     number_in_ticket = models.SmallIntegerField(verbose_name='Номер в билете')
     subject = models.ForeignKey(
