@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject, Question, Answer
+from .models import Subject, Question, Answer, Testing
 
 
 @admin.register(Subject)
@@ -28,4 +28,13 @@ class AnswerAdmin(admin.ModelAdmin):
         'name',
         'is_answer',
         'question'
+    ]
+
+
+@admin.register(Testing)
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'student',
+        'question',
     ]

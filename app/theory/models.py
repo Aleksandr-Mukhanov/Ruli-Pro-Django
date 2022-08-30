@@ -3,6 +3,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from app.mixins.db_classes import NameMixin, CreatedUpdatedMixin, SortMixin, NoteMixin, IsArchiveMixin
 from app.dictionary.models import Category
 from app.media.models import MediaFile
+from app.student.models import Student
 
 
 class Subject(NameMixin, CreatedUpdatedMixin, SortMixin, IsArchiveMixin):
@@ -51,3 +52,19 @@ class Answer(NameMixin, CreatedUpdatedMixin, IsArchiveMixin):
 
     def __str__(self):
         return self.name
+
+
+class Testing(models.Model):
+    student = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        verbose_name='Ученик',
+        related_name="testing"
+    )
+
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        verbose_name='Вопрос',
+        related_name="testing"
+    )
