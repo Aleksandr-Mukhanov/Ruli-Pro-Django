@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import *
+from app.theory.models import Answer, Question, Subject
+from app.media.models import MediaFile
 
 
 class MediaSerializer(serializers.ModelSerializer):

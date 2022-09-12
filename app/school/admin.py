@@ -18,12 +18,3 @@ class SubjectAdmin(admin.ModelAdmin):
         'school',
         'user'
     ]
-
-
-@admin.register(TeacherInSchool)
-class SubjectAdmin(admin.ModelAdmin):
-    list_display = [
-        'id',
-        'name',
-        'school',
-    ]

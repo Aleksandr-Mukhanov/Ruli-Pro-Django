@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'app.dictionary',
     'app.media',
     'app.theory',
+    'app.school',
+    'app.student',
+    'app.teacher',
+    'app.car',
 ]
 
 REST_FRAMEWORK = {

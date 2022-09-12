@@ -13,7 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin, NameMixin, CreatedUpdatedMixin):
     phone = models.CharField(_('phone'), unique=True, max_length=12)
     surname = models.CharField(_('surname'), max_length=30, blank=True)
     patronymic = models.CharField(_('patronymic'), max_length=30, blank=True)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False, verbose_name="Админ")
 
     objects = UserManager()
 
