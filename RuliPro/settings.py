@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
+    'django_selectel',
     'app.user',
     'app.dictionary',
     'app.media',
@@ -149,6 +150,14 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/'
 CKEDITOR_UPLOAD_PATH = "/uploads/"
+
+SELECTEL_STORAGE = {
+    "USER": config.get('selectel', 'USER'),
+    "PASSWORD": config.get('selectel', 'PASSWORD'),
+    "DOMAINS": {
+        "api": config.get('selectel', 'DOMAINS'),
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
