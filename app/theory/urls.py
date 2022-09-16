@@ -5,6 +5,7 @@ from app.teacher.views import *
 from app.student.views import *
 from app.school.views import *
 from app.car.views import *
+from app.schedule.views import *
 from django.urls import path
 
 router = DefaultRouter()
@@ -17,6 +18,7 @@ router.register(r'student', StudentViewSet, basename='student')
 router.register(r'school', SchoolViewSet, basename='school')
 router.register(r'school-member', MemberViewSet, basename='school-member')
 router.register(r'car', CarViewSet, basename='car')
+router.register(r'schedule', ScheduleViewSet, basename='schedule')
 urlpatterns = router.urls
 
 urlpatterns += [

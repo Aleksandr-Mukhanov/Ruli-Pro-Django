@@ -9,3 +9,23 @@ class Category(NameMixin, CreatedUpdatedMixin, SortMixin, IsActiveMixin):
 
     def __str__(self):
         return self.name
+
+
+class CarModels(NameMixin):
+
+    class Meta:
+        verbose_name = 'Модели авто'
+        verbose_name_plural = 'Модель авто'
+
+    def __str__(self):
+        return self.name
+
+
+class CarColors(NameMixin):
+
+    class Meta:
+        verbose_name = 'Цвета авто'
+        verbose_name_plural = 'Цвет авто'
+
+    def __str__(self):
+        return self.name

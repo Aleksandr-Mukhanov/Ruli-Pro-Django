@@ -13,6 +13,8 @@ class MediaFile(models.Model):
         return self.url
 
     class Meta:
+        verbose_name = 'Медиафайл'
+        verbose_name_plural = 'Медиафайлы'
         indexes = [
             models.Index(fields=["content_type", "object_id"]),
         ]
